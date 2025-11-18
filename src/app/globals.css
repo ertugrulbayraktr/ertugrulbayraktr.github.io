@@ -1,0 +1,132 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #FBFCFC; /* Light background */
+  --foreground: #000000; /* Black text */
+  --card-background: #FFFFFF; /* White for cards */
+  --primary: #2C3E50; /* Deep charcoal as primary color */
+  --primary-hover: #1A252F; /* Darker charcoal for hover */
+}
+
+/* Override dark mode to use the same light theme */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #FBFCFC; /* Light background */
+    --foreground: #000000; /* Black text */
+    --card-background: #FFFFFF; /* White for cards */
+    --primary: #7D9D9C; /* Sage green as primary color */
+    --primary-hover: #576F72; /* Darker sage green for hover */
+  }
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Add smooth transitions for hover effects */
+a, button {
+  transition: all 0.3s ease;
+}
+
+/* Add subtle animations for cards */
+.card-hover {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Profile picture animations */
+@keyframes profile-pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+  100% {
+    transform: scale(1.15);
+    opacity: 0;
+  }
+}
+
+@keyframes profile-rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.profile-image-container {
+  position: relative;
+  z-index: 1;
+  transition: all 0.3s ease;
+  border-radius: 50%;
+  overflow: visible;
+  user-select: none;
+  -webkit-user-drag: none;
+  cursor: pointer;
+}
+
+.profile-image-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 4px solid #2C3E50;
+  z-index: 2;
+}
+
+.profile-image-container:hover {
+  transform: scale(0.95);
+}
+
+.profile-image-container::before {
+  content: '';
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  right: -5px;
+  bottom: -5px;
+  border-radius: 50%;
+  background: linear-gradient(45deg, #2C3E50, #1A252F);
+  z-index: 0;
+  opacity: 0.4;
+  animation: profile-rotate 8s linear infinite;
+}
+
+.profile-image-container:hover::before {
+  animation-play-state: paused;
+}
+
+/* Pulsing rings */
+.pulse-ring {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 2px solid rgba(125, 157, 156, 0.4);
+  opacity: 0;
+  z-index: 1;
+}
+
+.pulse-ring-1 {
+  animation: profile-pulse 2.5s infinite;
+}
+
+.pulse-ring-2 {
+  animation: profile-pulse 2.5s infinite 1s;
+}
+
+.profile-image-container:hover .pulse-ring {
+  animation-play-state: paused;
+}
