@@ -32,14 +32,14 @@ const TimelineExperiences = () => {
       description: "I founded LLUX as a small e-commerce business specializing in home appliances and small electronics. I managed product sourcing, inventory, pricing, and customer relations while maintaining the online sales infrastructure across marketplace platforms. During this period, I achieved an 8.8 customer satisfaction rating, consistently delivering reliable service and smooth order fulfillment. This experience strengthened my practical skills in entrepreneurship, operations, and customer-focused business management.",
       type: "work"
     },
-    {
-      year: "September 2021 - June 2023 (1 year 10 months)",
-      title: "Technical Analyst",
-      company: "BFRC - Bahcesehir University Financial Research Center",
-      logo: "/images/company-logos/BFRC.png",
-      description: "I conduct technical analysis on financial markets, examining price movements, patterns, and indicators to provide insights and forecasts. This role enhances my analytical skills and deepens my understanding of market trends and strategies.",
-      type: "work"
-    }
+      {
+        year: "September 2021 - June 2023 (1 year 10 months)",
+        title: "Technical Analyst",
+        company: "BFRC - Bahcesehir University Financial Research Center",
+        logo: "/images/company-logos/BFRC.png",
+        description: "Conducted technical analysis on financial markets, examining price movements, patterns, and indicators to provide insights and forecasts. This role enhanced my analytical skills and deepened my understanding of market trends and strategies.",
+        type: "work"
+      }
   ];
 
   return (
